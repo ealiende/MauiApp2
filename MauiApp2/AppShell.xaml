@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp2"    
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.Resources>
+        <Style TargetType="ShellContent" x:Key="HomeFlyout">
+            <Style.Triggers>
+                <Trigger TargetType="ShellContent"
+                    Property="IsChecked" Value="False">
+                    <Setter Property="Icon" Value="arrow.png"/>
+                </Trigger>
+                <Trigger TargetType="ShellContent"
+                    Property="IsChecked" Value="True">
+                    <Setter Property="Icon" Value="search.png"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Shell.Resources>
+
+
+    <FlyoutItem
+        FlyoutDisplayOptions="AsMultipleItems">
+        
+        
+        <ShellContent            
+            Title="Home"
+            Style="{StaticResource HomeFlyout}"             
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+           />
+        <ShellContent
+            Title="Settings"
+            Icon="dotnet_bot.png" 
+             ContentTemplate="{DataTemplate local:MainPageDos}"
+            Route="MainPageDos" 
+           />
+        
+        <ShellContent
+            Title="Home 3"
+            Icon="dotnet_bot.png"  
+             ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage"
+            />
+        
+    </FlyoutItem>
+    
+
+</Shell>
